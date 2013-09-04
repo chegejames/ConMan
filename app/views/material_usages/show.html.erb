@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Material:</b>
+  <%= @material_usage.material.name %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @material_usage.date %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= pluralize(@material_usage.quantity, @material_usage.material.units_of_measurement) %>
+</p>
+
+<p>
+  <b>Phase:</b>
+  <%= @material_usage.phase.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @material_usage.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_material_usage_path(@project, @material_usage) %> |
+<%= link_to 'Back', project_material_usages_path(@project) %>

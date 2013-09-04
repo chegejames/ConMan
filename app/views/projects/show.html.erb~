@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @project.user %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @project.location %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @project.start_date %>
+</p>
+
+<p>
+  <b>Estimated completion date:</b>
+  <%= @project.estimated_completion_date %>
+</p>
+
+<p>
+  <b>Budget amount:</b>
+  <%= @project.budget_amount %>
+</p>
+
+<p>
+  <b>Spent amount:</b>
+  <%= @project.spent_amount %>
+</p>
+
+<p>
+  <b>Balance amount:</b>
+  <%= @project.balance_amount %>
+</p>
+
+<p>
+  <b>Completion pct:</b>
+  <%= @project.completion_pct %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

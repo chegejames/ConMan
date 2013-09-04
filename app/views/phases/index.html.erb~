@@ -1,0 +1,41 @@
+<h1>Listing phases</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>Name</th>
+    <th>Estimated start date</th>
+    <th>Actual start date</th>
+    <th>Estimated completion date</th>
+    <th>Actual completion date</th>
+    <th>Lowest estimated cost</th>
+    <th>Highest estimated cost</th>
+    <th>Actual cost</th>
+    <th>Completion pct</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @phases.each do |phase| %>
+  <tr>
+    <td><%= phase.project %></td>
+    <td><%= phase.name %></td>
+    <td><%= phase.estimated_start_date %></td>
+    <td><%= phase.actual_start_date %></td>
+    <td><%= phase.estimated_completion_date %></td>
+    <td><%= phase.actual_completion_date %></td>
+    <td><%= phase.lowest_estimated_cost %></td>
+    <td><%= phase.highest_estimated_cost %></td>
+    <td><%= phase.actual_cost %></td>
+    <td><%= phase.completion_pct %></td>
+    <td><%= link_to 'Show', [@project, phase] %></td>
+    <td><%= link_to 'Edit', edit_project_phase_path(@project, phase) %></td>
+    <td><%= link_to 'Destroy', [@project, phase], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Phase', new_project_phase_path(@project) %>

@@ -1,0 +1,19 @@
+<%= simple_form_for(@project) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.input :name %>
+    <%= f.input :location %>
+    <%= f.input :start_date %>
+    <%= f.input :estimated_completion_date %>
+    <%= f.input :budget_amount %>
+    <%= f.input :spent_amount %>
+    <%= f.input :balance_amount %>
+    <%= f.input :completion_pct %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

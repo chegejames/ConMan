@@ -1,0 +1,20 @@
+<%= simple_form_for(@phase) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :project %>
+    <%= f.input :name %>
+    <%= f.input :estimated_start_date %>
+    <%= f.input :actual_start_date %>
+    <%= f.input :estimated_completion_date %>
+    <%= f.input :actual_completion_date %>
+    <%= f.input :lowest_estimated_cost %>
+    <%= f.input :highest_estimated_cost %>
+    <%= f.input :actual_cost %>
+    <%= f.input :completion_pct %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

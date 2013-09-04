@@ -1,0 +1,15 @@
+<%= simple_form_for([@project, @material_usage], html: {class: "form-horizontal"}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :material %>
+    <%= f.input :date %>
+    <%= f.input :quantity %>
+    <%= f.association :phase %>
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

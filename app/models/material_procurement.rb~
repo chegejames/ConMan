@@ -1,0 +1,14 @@
+class MaterialProcurement < ActiveRecord::Base
+  belongs_to :material
+  attr_accessible :date, :price_per_unit, :quantity, :total
+  before_save :calculate_total
+  after_save :calculate_totals_for_material
+
+  def calculate_total
+    self.total = self.quantity * self.price_per_unit
+  end
+
+  def calculate_totals_for_material
+    self.material.calculate_total_units_and_cost
+  end
+end

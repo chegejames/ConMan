@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @material_usage.project %>
+</p>
+
+<p>
+  <b>Material:</b>
+  <%= @material_usage.material %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @material_usage.date %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @material_usage.quantity %>
+</p>
+
+<p>
+  <b>Phase:</b>
+  <%= @material_usage.phase %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @material_usage.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_material_usage_path(@material_usage) %> |
+<%= link_to 'Back', material_usages_path %>

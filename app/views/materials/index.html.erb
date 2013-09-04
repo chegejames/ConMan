@@ -1,0 +1,41 @@
+<h1>Listing materials</h1>
+
+<table class="table table-condensed table-striped table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Units of measurement</th>
+    <th>Lowest estimated units</th>
+    <th>Highest estimated units</th>
+    <th>Actual units</th>
+    <th>Lowest estimated cost per unit</th>
+    <th>Highest estimated cost per unit</th>
+    <th>Average cost per unit</th>
+    <th>Total cost</th>
+    <th>Balance units</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @materials.each do |material| %>
+  <tr>
+    <td><%= material.name %></td>
+    <td><%= material.units_of_measurement %></td>
+    <td><%= material.lowest_estimated_units %></td>
+    <td><%= material.highest_estimated_units %></td>
+    <td><%= material.actual_units %></td>
+    <td><%= material.lowest_estimated_cost_per_unit %></td>
+    <td><%= material.highest_estimated_cost_per_unit %></td>
+    <td><%= material.average_cost_per_unit %></td>
+    <td><%= material.total_cost%></td>
+    <td><%= material.balance_units %></td>
+    <td><%= link_to 'Show', [@project, material] %></td>
+    <td><%= link_to 'Edit', edit_project_material_path(@project, material) %></td>
+    <td><%= link_to 'Destroy', [@project, material], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Material', new_project_material_path(@project) %>

@@ -1,0 +1,6 @@
+class MaterialUsage < ActiveRecord::Base
+  belongs_to :project
+  belongs_to :material
+  belongs_to :phase
+  attr_accessible :date, :description, :quantity
+end

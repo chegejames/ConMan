@@ -1,0 +1,15 @@
+<%= simple_form_for(@material_procurement) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :material %>
+    <%= f.input :date %>
+    <%= f.input :quantity %>
+    <%= f.input :price_per_unit %>
+    <%= f.input :total %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

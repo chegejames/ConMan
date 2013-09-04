@@ -1,0 +1,4 @@
+class Phase < ActiveRecord::Base
+  belongs_to :project
+  attr_accessible :actual_completion_date, :actual_cost, :actual_start_date, :completion_pct, :estimated_completion_date, :estimated_start_date, :highest_estimated_cost, :lowest_estimated_cost, :name
+end

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Name:</b>
+  <%= @phase.name %>
+</p>
+
+<p>
+  <b>Estimated start date:</b>
+  <%= @phase.estimated_start_date %>
+</p>
+
+<p>
+  <b>Actual start date:</b>
+  <%= @phase.actual_start_date %>
+</p>
+
+<p>
+  <b>Estimated completion date:</b>
+  <%= @phase.estimated_completion_date %>
+</p>
+
+<p>
+  <b>Actual completion date:</b>
+  <%= @phase.actual_completion_date %>
+</p>
+
+<p>
+  <b>Lowest estimated cost:</b>
+  <%= @phase.lowest_estimated_cost %>
+</p>
+
+<p>
+  <b>Highest estimated cost:</b>
+  <%= @phase.highest_estimated_cost %>
+</p>
+
+<p>
+  <b>Actual cost:</b>
+  <%= @phase.actual_cost %>
+</p>
+
+<p>
+  <b>Completion pct:</b>
+  <%= @phase.completion_pct %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_phase_path(@project, @phase) %> |
+<%= link_to 'Back', project_phases_path(@project) %>

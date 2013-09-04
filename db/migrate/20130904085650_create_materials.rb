@@ -1,0 +1,20 @@
+class CreateMaterials < ActiveRecord::Migration
+  def change
+    create_table :materials do |t|
+      t.references :project
+      t.string :name
+      t.string :units_of_measurement
+      t.float :lowest_estimated_units
+      t.float :highest_estimated_units
+      t.float :actual_units
+      t.float :lowest_estimated_cost_per_unit
+      t.float :highest_estimated_cost_per_unit
+      t.float :average_cost_per_unit
+      t.float :balance_units
+      t.float :total_cost
+
+      t.timestamps
+    end
+    add_index :materials, :project_id
+  end
+end

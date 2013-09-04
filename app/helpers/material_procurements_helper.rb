@@ -1,0 +1,2 @@
+module MaterialProcurementsHelper
+end

@@ -1,0 +1,31 @@
+<h1>Listing material_procurements</h1>
+
+<table>
+  <tr>
+    <th>Material</th>
+    <th>Date</th>
+    <th>Quantity</th>
+    <th>Price per unit</th>
+    <th>Total</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @material_procurements.each do |material_procurement| %>
+  <tr>
+    <td><%= material_procurement.material.name %></td>
+    <td><%= material_procurement.date %></td>
+    <td><%= pluralize(material_procurement.quantity, material_procurement.material.units_of_measurement) %></td>
+    <td><%= material_procurement.price_per_unit %></td>
+    <td><%= material_procurement.total %></td>
+    <td><%= link_to 'Show', [@project, material_procurement] %></td>
+    <td><%= link_to 'Edit', edit_project_material_procurement_path(@project, material_procurement) %></td>
+    <td><%= link_to 'Destroy', [@project, material_procurement], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Material procurement', new_project_material_procurement_path(@project) %>

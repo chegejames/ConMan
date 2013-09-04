@@ -1,0 +1,6 @@
+<h1>Editing material_procurement</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @material_procurement %> |
+<%= link_to 'Back', material_procurements_path %>

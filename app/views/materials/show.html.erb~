@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @material.project %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @material.name %>
+</p>
+
+<p>
+  <b>Units of measurement:</b>
+  <%= @material.units_of_measurement %>
+</p>
+
+<p>
+  <b>Lowest estimated units:</b>
+  <%= @material.lowest_estimated_units %>
+</p>
+
+<p>
+  <b>Highest estimated units:</b>
+  <%= @material.highest_estimated_units %>
+</p>
+
+<p>
+  <b>Actual units:</b>
+  <%= @material.actual_units %>
+</p>
+
+<p>
+  <b>Lowest estimated cost per unit:</b>
+  <%= @material.lowest_estimated_cost_per_unit %>
+</p>
+
+<p>
+  <b>Highest estimated cost per unit:</b>
+  <%= @material.highest_estimated_cost_per_unit %>
+</p>
+
+<p>
+  <b>Average cost per unit:</b>
+  <%= @material.average_cost_per_unit %>
+</p>
+
+<p>
+  <b>Balance units:</b>
+  <%= @material.balance_units %>
+</p>
+
+
+<%= link_to 'Edit', edit_material_path(@material) %> |
+<%= link_to 'Back', materials_path %>

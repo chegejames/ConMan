@@ -1,0 +1,16 @@
+<%= simple_form_for([@project, @material], :html => {class: "form-horizontal"}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :units_of_measurement %>
+    <%= f.input :lowest_estimated_units %>
+    <%= f.input :highest_estimated_units %>
+    <%= f.input :lowest_estimated_cost_per_unit %>
+    <%= f.input :highest_estimated_cost_per_unit %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Material:</b>
+  <%= @material_procurement.material %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @material_procurement.date %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @material_procurement.quantity %>
+</p>
+
+<p>
+  <b>Price per unit:</b>
+  <%= @material_procurement.price_per_unit %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%= @material_procurement.total %>
+</p>
+
+
+<%= link_to 'Edit', edit_material_procurement_path(@material_procurement) %> |
+<%= link_to 'Back', material_procurements_path %>
