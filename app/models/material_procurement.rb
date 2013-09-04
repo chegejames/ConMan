@@ -1,9 +1,10 @@
 class MaterialProcurement < ActiveRecord::Base
   belongs_to :material
+  belongs_to :project
   attr_accessible :date, :price_per_unit, :quantity, :total
   before_save :calculate_total
-  after_save :calculate_totals_for_material,  :update_phase_avg
-  after_destroy :calculate_totals_for_material, :update_phase_avg
+  after_save :calculate_totals_for_material,  :update_phase_avg, :update_project
+  after_destroy :calculate_totals_for_material, :update_phase_avg, :update_project
 
   def calculate_total
     self.total = self.quantity * self.price_per_unit
@@ -15,5 +16,9 @@ class MaterialProcurement < ActiveRecord::Base
    #FIXME update the avgs when new material is bought
    def update_phase_avg
 
+  end
+
+   def update_project
+    self.project.calculate_totals_and_balance
   end
 end
