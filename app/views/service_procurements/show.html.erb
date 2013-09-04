@@ -1,0 +1,28 @@
+<p>
+  <b>Service:</b>
+  <%= @service_procurement.service.name %>
+</p>
+
+<p>
+  <b>Phase:</b>
+  <%= @service_procurement.phase.name %>
+</p>
+
+<p>
+  <b>Provider:</b>
+  <%= @service_procurement.provider %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @service_procurement.date %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @service_procurement.cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_service_procurement_path(@project, @service_procurement) %> |
+<%= link_to 'Back', project_service_procurements_path(@project) %>

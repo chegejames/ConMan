@@ -1,0 +1,33 @@
+<h1>Listing service_procurements</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>Service</th>
+    <th>Phase</th>
+    <th>Provider</th>
+    <th>Date</th>
+    <th>Cost</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @service_procurements.each do |service_procurement| %>
+  <tr>
+    <td><%= service_procurement.project %></td>
+    <td><%= service_procurement.service %></td>
+    <td><%= service_procurement.phase %></td>
+    <td><%= service_procurement.provider %></td>
+    <td><%= service_procurement.date %></td>
+    <td><%= service_procurement.cost %></td>
+    <td><%= link_to 'Show', service_procurement %></td>
+    <td><%= link_to 'Edit', edit_service_procurement_path(service_procurement) %></td>
+    <td><%= link_to 'Destroy', service_procurement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Service procurement', new_service_procurement_path %>

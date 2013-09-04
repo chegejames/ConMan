@@ -1,0 +1,37 @@
+<h1>Listing services</h1>
+
+<table class="table table-hover table-condensed table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Lowest estimated number of services</th>
+    <th>Highest estimated number of services</th>
+    <th>Actual number</th>
+    <th>Lowest estimated cost per service</th>
+    <th>Highest estimated cost per service</th>
+    <th>Avg cost per service</th>
+    <th>Total cost</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @services.each do |service| %>
+  <tr>
+    <td><%= service.name %></td>
+    <td><%= service.lowest_estimated_number_of_services %></td>
+    <td><%= service.highest_estimated_number_of_services %></td>
+    <td><%= service.actual_number %></td>
+    <td><%= service.lowest_estimated_cost_per_service %></td>
+    <td><%= service.highest_estimated_cost_per_service %></td>
+    <td><%= service.avg_cost_per_service %></td>
+    <td><%= service.total_cost %></td>
+    <td><%= link_to 'Show', [@project, service] %></td>
+    <td><%= link_to 'Edit', edit_project_service_path(@project, service) %></td>
+    <td><%= link_to 'Destroy', [@project, service], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Service', new_project_service_path %>

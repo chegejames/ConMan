@@ -1,0 +1,83 @@
+class ServiceProcurementsController < ApplicationController
+  # GET /service_procurements
+  # GET /service_procurements.json
+  def index
+    @service_procurements = ServiceProcurement.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @service_procurements }
+    end
+  end
+
+  # GET /service_procurements/1
+  # GET /service_procurements/1.json
+  def show
+    @service_procurement = ServiceProcurement.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @service_procurement }
+    end
+  end
+
+  # GET /service_procurements/new
+  # GET /service_procurements/new.json
+  def new
+    @service_procurement = ServiceProcurement.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @service_procurement }
+    end
+  end
+
+  # GET /service_procurements/1/edit
+  def edit
+    @service_procurement = ServiceProcurement.find(params[:id])
+  end
+
+  # POST /service_procurements
+  # POST /service_procurements.json
+  def create
+    @service_procurement = ServiceProcurement.new(params[:service_procurement])
+
+    respond_to do |format|
+      if @service_procurement.save
+        format.html { redirect_to @service_procurement, notice: 'Service procurement was successfully created.' }
+        format.json { render json: @service_procurement, status: :created, location: @service_procurement }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @service_procurement.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /service_procurements/1
+  # PUT /service_procurements/1.json
+  def update
+    @service_procurement = ServiceProcurement.find(params[:id])
+
+    respond_to do |format|
+      if @service_procurement.update_attributes(params[:service_procurement])
+        format.html { redirect_to @service_procurement, notice: 'Service procurement was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @service_procurement.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /service_procurements/1
+  # DELETE /service_procurements/1.json
+  def destroy
+    @service_procurement = ServiceProcurement.find(params[:id])
+    @service_procurement.destroy
+
+    respond_to do |format|
+      format.html { redirect_to service_procurements_url }
+      format.json { head :no_content }
+    end
+  end
+end

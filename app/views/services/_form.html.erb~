@@ -1,0 +1,19 @@
+<%= simple_form_for(@service) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :project %>
+    <%= f.input :name %>
+    <%= f.input :lowest_estimated_number_of_services %>
+    <%= f.input :highest_estimated_number_of_services %>
+    <%= f.input :actual_number %>
+    <%= f.input :lowest_estimated_cost_per_service %>
+    <%= f.input :highest_estimated_cost_per_service %>
+    <%= f.input :avg_cost_per_service %>
+    <%= f.input :total_cost %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

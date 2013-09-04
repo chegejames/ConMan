@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @service.project %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @service.name %>
+</p>
+
+<p>
+  <b>Lowest estimated number of services:</b>
+  <%= @service.lowest_estimated_number_of_services %>
+</p>
+
+<p>
+  <b>Highest estimated number of services:</b>
+  <%= @service.highest_estimated_number_of_services %>
+</p>
+
+<p>
+  <b>Actual number:</b>
+  <%= @service.actual_number %>
+</p>
+
+<p>
+  <b>Lowest estimated cost per service:</b>
+  <%= @service.lowest_estimated_cost_per_service %>
+</p>
+
+<p>
+  <b>Highest estimated cost per service:</b>
+  <%= @service.highest_estimated_cost_per_service %>
+</p>
+
+<p>
+  <b>Avg cost per service:</b>
+  <%= @service.avg_cost_per_service %>
+</p>
+
+<p>
+  <b>Total cost:</b>
+  <%= @service.total_cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_path %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @service_procurement.project %>
+</p>
+
+<p>
+  <b>Service:</b>
+  <%= @service_procurement.service %>
+</p>
+
+<p>
+  <b>Phase:</b>
+  <%= @service_procurement.phase %>
+</p>
+
+<p>
+  <b>Provider:</b>
+  <%= @service_procurement.provider %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @service_procurement.date %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @service_procurement.cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_service_procurement_path(@service_procurement) %> |
+<%= link_to 'Back', service_procurements_path %>
