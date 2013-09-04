@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130904124543) do
+ActiveRecord::Schema.define(:version => 20130904203912) do
 
   create_table "material_procurements", :force => true do |t|
     t.integer  "project_id"
@@ -91,6 +91,37 @@ ActiveRecord::Schema.define(:version => 20130904124543) do
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
+
+  create_table "service_procurements", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "service_id"
+    t.integer  "phase_id"
+    t.string   "provider"
+    t.date     "date"
+    t.float    "cost"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "service_procurements", ["phase_id"], :name => "index_service_procurements_on_phase_id"
+  add_index "service_procurements", ["project_id"], :name => "index_service_procurements_on_project_id"
+  add_index "service_procurements", ["service_id"], :name => "index_service_procurements_on_service_id"
+
+  create_table "services", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.float    "lowest_estimated_number_of_services"
+    t.float    "highest_estimated_number_of_services"
+    t.float    "actual_number"
+    t.float    "lowest_estimated_cost_per_service"
+    t.float    "highest_estimated_cost_per_service"
+    t.float    "avg_cost_per_service"
+    t.float    "total_cost"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
+  add_index "services", ["project_id"], :name => "index_services_on_project_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

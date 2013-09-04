@@ -1,9 +1,17 @@
 ConMan::Application.routes.draw do
+
+
+
+
+
+
   resources :projects do
     resources :phases
     resources :materials
     resources :material_procurements
     resources :material_usages
+    resources :services
+    resources :service_procurements
   end
 
 

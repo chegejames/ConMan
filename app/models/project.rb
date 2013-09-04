@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
   has_many :materials
   has_many :material_procurements
   has_many :material_usages
+  has_many :services
+  has_many :service_procurements
   #FIXME add currency to project and format numbers
   attr_accessible :balance_amount, :budget_amount, :completion_pct, :estimated_completion_date, :location, :name, :spent_amount, :start_date
 end
