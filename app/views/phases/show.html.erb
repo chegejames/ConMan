@@ -11,6 +11,7 @@
     <div class="progress progress-striped active">
       <div class="bar" style="width: <%= @phase.completion_pct.to_i%>%;"></div>
     </div>
+     <%= link_to "Back", project_phases_path(@project)%> |
      <%= link_to image_tag("pencil.png"), edit_project_phase_path(@project, @phase)%>|
      <%= link_to image_tag("close.png"), [@project, @phase], method: :delete, data: { confirm: 'Are you sure?' }%>
   </div>
