@@ -6,7 +6,6 @@
 </div>
 <% @phases.each do |phase| %>
   <div class="row-fluid card">
-             <%= link_to image_tag("close.png"), [@project, phase], method: :delete, data: { confirm: 'Are you sure?' }, class: "pull-right"%>
     <div class="stats">
     <h3><%= link_to phase.name, [@project, phase] %></h3>
 
