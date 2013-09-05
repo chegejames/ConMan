@@ -1,43 +1,31 @@
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
+ <div class="row-fluid project">
+<h2><%= image_tag "home.png"%>  <%= @project.name%></h2>
+<h5><%= image_tag "location.png"%> <%= @project.location %></h5>
+<div class="row-fluid stats">
+      <div class="span6 stat">
+      <h5>
+        <span>Start date: </span><%= @project.start_date %>
+      </h5>
+      <h5>
+        <span>Estimated completion date: </span><%= @project.estimated_completion_date %>
+      </h5>
+    </div>
+<div class="span6 stat">
+      <h5>
+        <span>Budget: </span><%= number_to_currency(@project.budget_amount, unit: "KSHs ") %>
+      </h5>
+      <h5>
+        <span>Amount spent: </span><%= number_to_currency(@project.spent_amount, unit: "KSHs ") %>
+      </h5>
+      <h5>
+        <span>Balance: </span><%= number_to_currency(@project.balance_amount, unit: "KSHs ") %>
+      </h5>
+    </div>
+    </div>
 
-<p>
-  <b>Location:</b>
-  <%= @project.location %>
-</p>
+    <div class="progress progress-striped active">
+      <div class="bar" style="width: <%= @project.completion_pct.to_i%>%;"></div>
+    </div>
+    <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-warning"%>
+  </div>
 
-<p>
-  <b>Start date:</b>
-  <%= @project.start_date %>
-</p>
-
-<p>
-  <b>Estimated completion date:</b>
-  <%= @project.estimated_completion_date %>
-</p>
-
-<p>
-  <b>Budget amount:</b>
-  <%= @project.budget_amount %>
-</p>
-
-<p>
-  <b>Spent amount:</b>
-  <%= @project.spent_amount %>
-</p>
-
-<p>
-  <b>Balance amount:</b>
-  <%= @project.balance_amount %>
-</p>
-
-<p>
-  <b>Completion pct:</b>
-  <%= @project.completion_pct %>
-</p>
-
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>

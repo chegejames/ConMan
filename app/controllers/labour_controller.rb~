@@ -1,0 +1,4 @@
+class LabourController < ApplicationController
+  def index
+  end
+end

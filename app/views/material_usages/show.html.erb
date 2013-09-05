@@ -1,10 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Material:</b>
-  <%= @material_usage.material.name %>
-</p>
-
+<div class="row-fluid material">
+<h2> <%= @material_usage.material.name %></h2>
 <p>
   <b>Date:</b>
   <%= @material_usage.date %>
@@ -25,6 +20,8 @@
   <%= @material_usage.description %>
 </p>
 
+<%= link_to 'Back', project_material_usages_path(@project) %> |
+<%= link_to image_tag("pencil.png"), edit_project_material_usage_path(@project, @material_usage) %> |
+         <%= link_to image_tag("close.png"), [@project, @material_usage], method: :delete, data: { confirm: "Are you sure"}%>
 
-<%= link_to 'Edit', edit_project_material_usage_path(@project, @material_usage) %> |
-<%= link_to 'Back', project_material_usages_path(@project) %>
+</div>

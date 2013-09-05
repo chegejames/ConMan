@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
+<div class="row-fluid material">
 
-<p>
-  <b>Material:</b>
-  <%= @material_procurement.material.name %>
-</p>
+<h2>  <%= @material_procurement.material.name %></h2>
+
 
 <p>
   <b>Date:</b>
@@ -25,6 +23,7 @@
   <%= @material_procurement.total %>
 </p>
 
-
-<%= link_to 'Edit', edit_project_material_procurement_path(@project, @material_procurement) %> |
-<%= link_to 'Back', project_material_procurements_path(@project) %>
+<%= link_to 'Back', project_material_procurements_path(@project) %> |
+<%= link_to image_tag("pencil.png"), edit_project_material_procurement_path(@project, @material_procurement) %> |
+         <%= link_to image_tag("close.png"), [@project, @materil_procurement], method: :delete, data: {confirm: "Are you sure?"}%>
+</div>

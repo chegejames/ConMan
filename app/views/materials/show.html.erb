@@ -1,8 +1,5 @@
-
-<p>
-  <b>Name:</b>
-  <%= @material.name %>
-</p>
+<div class="row-fluid material">
+<h2>  <%= @material.name %></h2>
 
 <p>
   <b>Units of measurement:</b>
@@ -48,6 +45,7 @@
   <%= @material.total_cost%>
 </p>
 
-
-<%= link_to 'Edit', edit_project_material_path(@project, @material) %> |
-<%= link_to 'Back', project_materials_path(@project) %>
+<%= link_to 'Back', project_materials_path(@project), class: "btn"%> |
+<%= link_to image_tag("pencil.png"), edit_project_material_path(@project, @material) %> |
+<%= link_to image_tag("close.png"), [@project, @material], method: :delete, data: { confirm: 'Are you sure?' }%>
+</div>

@@ -1,37 +1,34 @@
-<h1>Listing projects</h1>
+<div class="row-fluid">
+  <% @projects.each do |project| %>
+  <div class="row-fluid project">
+    <h2><%= image_tag "home.png"%>  <%= link_to project.name, project %></h2>
+    <h5><%= image_tag "location.png"%> <%= project.location %></h5>
+    <div class="row-fluid stats">
+      <div class="span6 stat">
+      <h5>
+        <span>Start date: </span><%= project.start_date %>
+      </h5>
+      <h5>
+        <span>Estimated completion date: </span><%= project.estimated_completion_date %>
+      </h5>
+    </div>
+    <div class="span6 stat">
+      <h5>
+        <span>Budget: </span><%= number_to_currency(project.budget_amount, unit: "KSHs ") %>
+      </h5>
+      <h5>
+        <span>Amount spent: </span><%= number_to_currency(project.spent_amount, unit: "KSHs ") %>
+      </h5>
+      <h5>
+        <span>Balance: </span><%= number_to_currency(project.balance_amount, unit: "KSHs ") %>
+      </h5>
+    </div>
+    </div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Location</th>
-    <th>Start date</th>
-    <th>Estimated completion date</th>
-    <th>Budget amount</th>
-    <th>Spent amount</th>
-    <th>Balance amount</th>
-    <th>Completion pct</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <div class="progress progress-striped active">
+      <div class="bar" style="width: <%= project.completion_pct.to_i%>%;"></div>
+    </div>
+  </div>
+  <% end %>
+</div>
 
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= project.name %></td>
-    <td><%= project.location %></td>
-    <td><%= project.start_date %></td>
-    <td><%= project.estimated_completion_date %></td>
-    <td><%= project.budget_amount %></td>
-    <td><%= project.spent_amount %></td>
-    <td><%= project.balance_amount %></td>
-    <td><%= project.completion_pct %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Project', new_project_path %>

@@ -1,8 +1,5 @@
-<p>
-  <b>Name:</b>
-  <%= @service.name %>
-</p>
-
+<div class="row-fluid service">
+<h2>  <%= @service.name %></h2>
 <p>
   <b>Lowest estimated number of services:</b>
   <%= @service.lowest_estimated_number_of_services %>
@@ -38,6 +35,8 @@
   <%= @service.total_cost %>
 </p>
 
+<%= link_to 'Back', project_services_path(@project) %> |
+<%= link_to image_tag("pencil.png"), edit_project_service_path(@project, @service) %> |
+         <%= link_to image_tag("close.png"), [@project, @service], method: :delete, data: {confirmation: "Are you sure"}%>
 
-<%= link_to 'Edit', edit_project_service_path(@project, @service) %> |
-<%= link_to 'Back', project_services_path(@project) %>
+</div>

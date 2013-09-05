@@ -1,6 +1,7 @@
-<h1>Listing material_procurements</h1>
-
-<table class="table table-condensed table-striped table-hover">
+<div class="row-fluid">
+<h1>Materials Procured</h1>
+<%= image_tag("plus.png")%> <%= link_to 'Add procured material', new_project_material_procurement_path(@project) %>
+<table class="table table-condensed table-striped table-hover table-bordered">
   <tr>
     <th>Material</th>
     <th>Date</th>
@@ -19,13 +20,15 @@
     <td><%= pluralize(material_procurement.quantity, material_procurement.material.units_of_measurement) %></td>
     <td><%= material_procurement.price_per_unit %></td>
     <td><%= material_procurement.total %></td>
-    <td><%= link_to 'Show', [@project, material_procurement] %></td>
-    <td><%= link_to 'Edit', edit_project_material_procurement_path(@project, material_procurement) %></td>
-    <td><%= link_to 'Destroy', [@project, material_procurement], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', [@project, material_procurement], class: "btn btn-mini btn-info" %></td>
+    <td><%= link_to 'Edit', edit_project_material_procurement_path(@project, material_procurement), class: "btn btn-mini btn-warning" %></td>
+    <td><%= link_to 'Destroy', [@project, material_procurement], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Material procurement', new_project_material_procurement_path(@project) %>
+
+
+</div>

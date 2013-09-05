@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ConMan</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% if user_signed_in?%>
+<header class="row-fluid">
+<nav class="row-fluid">
+<div class="span4">
+  <h1>Con Man</h1>
+</div>
+<ul class="span2">
+        <li><strong>Start</strong><%= link_to "a project", new_project_path%></li>
+ </ul>
+<div class="span4">
+
+</div>
+<ul class="span2 sub-menu">
+</li><%= link_to "logout", destroy_user_session_path, method: :delete%></li>
+</ul>
+</div>
+</nav>
+</header>
+<%end%>
+<% if notice.present?%>
+  <p class="notice"><%= notice %></p>
+<%end%>
+<% if alert.present?%>
+  <p class="alert"><%= alert %></p>
+<%end%>
+<div class="container-fluid">
+<%= yield %>
+</div>
+</body>
+</html>

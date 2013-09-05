@@ -3,3 +3,34 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'bootstrap';
 @import "bootstrap-responsive";
+
+
+.card{
+   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */	
+   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+   box-sizing: border-box;
+    padding-top: 2px;
+    display: inline;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-right: 1px;
+    width: 23%;
+    min-height: 330px;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px 6px 6px 6px;
+    border: 1px solid rgb(208, 213, 203);
+    position: relative;
+    background-color: white;
+    background-repeat: repeat-x;
+    .stats{
+      padding: 20px;
+    h3{
+      text-align: center;
+      a{
+      color: rgb(0, 150, 187);
+      }
+    }}
+}

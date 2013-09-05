@@ -1,6 +1,9 @@
+<div class="row-fluid">
 <h1>Listing services</h1>
-
-<table class="table table-hover table-condensed table-striped">
+<div class="add">
+<%= image_tag("plus.png")%> <%= link_to 'Add a Service', new_project_service_path %>
+</div>
+<table class="table table-hover table-condensed table-striped table-bordered">
   <tr>
     <th>Name</th>
     <th>Lowest estimated number of services</th>
@@ -25,13 +28,14 @@
     <td><%= service.highest_estimated_cost_per_service %></td>
     <td><%= service.avg_cost_per_service %></td>
     <td><%= service.total_cost %></td>
-    <td><%= link_to 'Show', [@project, service] %></td>
-    <td><%= link_to 'Edit', edit_project_service_path(@project, service) %></td>
-    <td><%= link_to 'Destroy', [@project, service], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', [@project, service], class: "btn btn-mini btn-info" %></td>
+    <td><%= link_to 'Edit', edit_project_service_path(@project, service), class: "btn btn-mini btn-warning" %></td>
+    <td><%= link_to 'Destroy', [@project, service], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger"%></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Service', new_project_service_path %>
+
+</div>

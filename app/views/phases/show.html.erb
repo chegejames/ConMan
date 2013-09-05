@@ -1,49 +1,20 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <b>Name:</b>
-  <%= @phase.name %>
-</p>
+<div class="row-fluid phase">
+    <h2><%= @phase.name %></h2>
 
-<p>
-  <b>Estimated start date:</b>
-  <%= @phase.estimated_start_date %>
-</p>
-
-<p>
-  <b>Actual start date:</b>
-  <%= @phase.actual_start_date %>
-</p>
-
-<p>
-  <b>Estimated completion date:</b>
-  <%= @phase.estimated_completion_date %>
-</p>
-
-<p>
-  <b>Actual completion date:</b>
-  <%= @phase.actual_completion_date %>
-</p>
-
-<p>
-  <b>Lowest estimated cost:</b>
-  <%= @phase.lowest_estimated_cost %>
-</p>
-
-<p>
-  <b>Highest estimated cost:</b>
-  <%= @phase.highest_estimated_cost %>
-</p>
-
-<p>
-  <b>Actual cost:</b>
-  <%= @phase.actual_cost %>
-</p>
-
-<p>
-  <b>Completion pct:</b>
-  <%= @phase.completion_pct %>
-</p>
+    <p><span>Estimated start date: </span> <%= @phase.estimated_start_date %></p>
+    <p><span>Actual start date: </span><%= @phase.actual_start_date %></p>
+    <p><span>Estimated completion date: </span><%= @phase.estimated_completion_date %></p>
+    <p><span>Actual completion date: </span><%= @phase.actual_completion_date %></p>
+    <p><span>Lowest estimated cost: </span><%= @phase.lowest_estimated_cost %></p>
+    <p><span>Highest estimated cost: </span><%= @phase.highest_estimated_cost %></p>
+    <p><span>Actual cost: </span><%= @phase.actual_cost %></p>
+    <div class="progress progress-striped active">
+      <div class="bar" style="width: <%= @phase.completion_pct.to_i%>%;"></div>
+    </div>
+     <%= link_to image_tag("pencil.png"), edit_project_phase_path(@project, @phase)%>|
+     <%= link_to image_tag("close.png"), [@project, @phase], method: :delete, data: { confirm: 'Are you sure?' }%>
+  </div>
 
 
-<%= link_to 'Edit', edit_project_phase_path(@project, @phase) %> |
-<%= link_to 'Back', project_phases_path(@project) %>
+
+

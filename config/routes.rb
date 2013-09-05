@@ -5,6 +5,8 @@ ConMan::Application.routes.draw do
 
 
 
+
+
   resources :projects do
     resources :phases
     resources :materials
@@ -12,12 +14,14 @@ ConMan::Application.routes.draw do
     resources :material_usages
     resources :services
     resources :service_procurements
+    get "labour/index"
   end
 
 
   devise_for :users
 
   match "home" =>  "home#index"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

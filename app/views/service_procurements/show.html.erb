@@ -1,8 +1,5 @@
-<p>
-  <b>Service:</b>
-  <%= @service_procurement.service.name %>
-</p>
-
+<div class="row-fluid service">
+ <h2> <%= @service_procurement.service.name %></h2>
 <p>
   <b>Phase:</b>
   <%= @service_procurement.phase.name %>
@@ -23,6 +20,8 @@
   <%= @service_procurement.cost %>
 </p>
 
+<%= link_to 'Back', project_service_procurements_path(@project) %> |
+<%= link_to image_tag("pencil.png"), edit_project_service_procurement_path(@project, @service_procurement) %> |
+         <%= link_to image_tag("close.png"), [@project, @service_procurement], method: :delete, data: {confirmation: "Are you sure"}%>
 
-<%= link_to 'Edit', edit_project_service_procurement_path(@project, @service_procurement) %> |
-<%= link_to 'Back', project_service_procurements_path(@project) %>
+</div>

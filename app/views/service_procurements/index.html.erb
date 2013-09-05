@@ -1,6 +1,9 @@
-<h1>Listing service_procurements</h1>
-
-<table class="table table-striped table-condensed table-hover">
+<div class="row-fluid">
+<h1>Services  procured</h1>
+<div>
+<%= image_tag("plus.png")%> <%= link_to 'Add Service procurement', new_project_service_procurement_path(@project) %>
+</div>
+<table class="table table-striped table-condensed table-hover table-bordered">
   <tr>
     <th>Service</th>
     <th>Phase</th>
@@ -19,13 +22,14 @@
     <td><%= service_procurement.provider %></td>
     <td><%= service_procurement.date %></td>
     <td><%= service_procurement.cost %></td>
-    <td><%= link_to 'Show', [@project, service_procurement] %></td>
-    <td><%= link_to 'Edit', edit_project_service_procurement_path(@project, service_procurement) %></td>
-    <td><%= link_to 'Destroy', [@project, service_procurement], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', [@project, service_procurement], class: "btn  btn-mini btn-info" %></td>
+    <td><%= link_to 'Edit', edit_project_service_procurement_path(@project, service_procurement), class: "btn btn-mini btn-warning" %></td>
+    <td><%= link_to 'Destroy', [@project, service_procurement], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Service procurement', new_project_service_procurement_path(@project) %>
+
+</div>

@@ -1,14 +1,15 @@
 class ProjectsController < ApplicationController
+  layout "application"
   # GET /projects
   # GET /projects.json
   #FIXME to show only the current users projects
   def index
     @projects = current_user.projects
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @projects }
-    end
+     render layout: "projects"
+   # respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.json { render json: @projects }
+  #  end
   end
 
   # GET /projects/1
@@ -26,11 +27,11 @@ class ProjectsController < ApplicationController
   # GET /projects/new.json
   def new
     @project = Project.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @project }
-    end
+    render layout: "projects"
+    #respond_to do |format|
+     # format.html # new.html.erb
+     # format.json { render json: @project }
+    #end
   end
 
   # GET /projects/1/edit
