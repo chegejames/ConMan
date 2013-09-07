@@ -11,16 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130907083419) do
+ActiveRecord::Schema.define(:version => 20130907092245) do
 
   create_table "labour_estimates", :force => true do |t|
     t.integer  "project_id"
-    t.integer  "no_of_men"
-    t.float    "no_of_days"
-    t.float    "total_cost_per_day"
-    t.float    "total_cost"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.float    "lowest_estimated_number_of_days"
+    t.float    "highest_estimated_number_of_days"
+    t.float    "actual_number_of_days"
+    t.integer  "lowest_estimated_number_of_men"
+    t.integer  "highest_estimated_number_of_men"
+    t.integer  "actual_number_of_men"
+    t.float    "lowest_estimated_cost_per_day"
+    t.float    "highest_estimated_cost_per_day"
+    t.float    "avg_cost_per_day"
+    t.float    "lowest_estimated_total_cost"
+    t.float    "highest_estimated_total_cost"
+    t.float    "actual_total_cost"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   add_index "labour_estimates", ["project_id"], :name => "index_labour_estimates_on_project_id"

@@ -1,30 +1,68 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Project:</b>
   <%= @labour_estimate.project %>
 </p>
 
 <p>
-  <b>No of men:</b>
-  <%= @labour_estimate.no_of_men %>
+  <b>Lowest estimated number of days:</b>
+  <%= @labour_estimate.lowest_estimated_number_of_days %>
 </p>
 
 <p>
-  <b>No of days:</b>
-  <%= @labour_estimate.no_of_days %>
+  <b>Highest estimated number of days:</b>
+  <%= @labour_estimate.highest_estimated_number_of_days %>
 </p>
 
 <p>
-  <b>Total cost per day:</b>
-  <%= @labour_estimate.total_cost_per_day %>
+  <b>Actual number of days:</b>
+  <%= @labour_estimate.actual_number_of_days %>
 </p>
 
 <p>
-  <b>Total cost:</b>
-  <%= @labour_estimate.total_cost %>
+  <b>Lowest estimated number of men:</b>
+  <%= @labour_estimate.lowest_estimated_number_of_men %>
+</p>
+
+<p>
+  <b>Highest estimated number of men:</b>
+  <%= @labour_estimate.highest_estimated_number_of_men %>
+</p>
+
+<p>
+  <b>Actual number of men:</b>
+  <%= @labour_estimate.actual_number_of_men %>
+</p>
+
+<p>
+  <b>Lowest estimated cost per day:</b>
+  <%= @labour_estimate.lowest_estimated_cost_per_day %>
+</p>
+
+<p>
+  <b>Highest estimated cost per day:</b>
+  <%= @labour_estimate.highest_estimated_cost_per_day %>
+</p>
+
+<p>
+  <b>Avg cost per day:</b>
+  <%= @labour_estimate.avg_cost_per_day %>
+</p>
+
+<p>
+  <b>Lowest estimated total cost:</b>
+  <%= @labour_estimate.lowest_estimated_total_cost %>
+</p>
+
+<p>
+  <b>Highest estimated total cost:</b>
+  <%= @labour_estimate.highest_estimated_total_cost %>
+</p>
+
+<p>
+  <b>Actual total cost:</b>
+  <%= @labour_estimate.actual_total_cost %>
 </p>
 
 
-<%= link_to 'Edit', edit_labour_estimate_path(@labour_estimate) %> |
-<%= link_to 'Back', labour_estimates_path %>
+<%= link_to 'Edit', edit_project_labour_estimate_path(@project, @labour_estimate) %> |
+<%= link_to 'Back', project_labour_estimates_path(@project) %>

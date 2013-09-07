@@ -4,12 +4,6 @@ ConMan::Application.routes.draw do
 
 
 
-
-
-
-  resources :labour_estimates
-
-
   resources :projects do
     resources :phases
     resources :materials
@@ -17,6 +11,7 @@ ConMan::Application.routes.draw do
     resources :material_usages
     resources :services
     resources :service_procurements
+    resources :labour_estimates
     get "labour/index"
   end
 

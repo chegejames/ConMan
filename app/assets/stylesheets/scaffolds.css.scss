@@ -1,7 +1,8 @@
 body {
-  background-color: #EEF2EA;
-    color: rgb(18, 26, 13);
-    font: 16px/1.5 "Helvetica Neue",Helvetica,Arial,"Liberation Sans",FreeSans,sans-serif;
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
   line-height: 18px;
 }
 
@@ -9,10 +10,7 @@ p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  }
-
-
-
+}
 
 pre {
   background-color: #eee;
@@ -26,7 +24,8 @@ a {
     color: #666;
   }
   &:hover {
-    text-decoration: none;
+    color: #fff;
+    background-color: #000;
   }
 }
 

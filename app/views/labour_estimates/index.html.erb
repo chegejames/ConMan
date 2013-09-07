@@ -1,12 +1,19 @@
 <h1>Listing labour_estimates</h1>
-
+<%= link_to 'New Labour estimate', new_project_labour_estimate_path(@project) %>
 <table>
   <tr>
-    <th>Project</th>
-    <th>No of men</th>
-    <th>No of days</th>
-    <th>Total cost per day</th>
-    <th>Total cost</th>
+    <th>Lowest estimated number of days</th>
+    <th>Highest estimated number of days</th>
+    <th>Actual number of days</th>
+    <th>Lowest estimated number of men</th>
+    <th>Highest estimated number of men</th>
+    <th>Actual number of men</th>
+    <th>Lowest estimated cost per day</th>
+    <th>Highest estimated cost per day</th>
+    <th>Avg cost per day</th>
+    <th>Lowest estimated total cost</th>
+    <th>Highest estimated total cost</th>
+    <th>Actual total cost</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,18 +21,25 @@
 
 <% @labour_estimates.each do |labour_estimate| %>
   <tr>
-    <td><%= labour_estimate.project %></td>
-    <td><%= labour_estimate.no_of_men %></td>
-    <td><%= labour_estimate.no_of_days %></td>
-    <td><%= labour_estimate.total_cost_per_day %></td>
-    <td><%= labour_estimate.total_cost %></td>
-    <td><%= link_to 'Show', labour_estimate %></td>
-    <td><%= link_to 'Edit', edit_labour_estimate_path(labour_estimate) %></td>
-    <td><%= link_to 'Destroy', labour_estimate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= labour_estimate.lowest_estimated_number_of_days %></td>
+    <td><%= labour_estimate.highest_estimated_number_of_days %></td>
+    <td><%= labour_estimate.actual_number_of_days %></td>
+    <td><%= labour_estimate.lowest_estimated_number_of_men %></td>
+    <td><%= labour_estimate.highest_estimated_number_of_men %></td>
+    <td><%= labour_estimate.actual_number_of_men %></td>
+    <td><%= labour_estimate.lowest_estimated_cost_per_day %></td>
+    <td><%= labour_estimate.highest_estimated_cost_per_day %></td>
+    <td><%= labour_estimate.avg_cost_per_day %></td>
+    <td><%= labour_estimate.lowest_estimated_total_cost %></td>
+    <td><%= labour_estimate.highest_estimated_total_cost %></td>
+    <td><%= labour_estimate.actual_total_cost %></td>
+    <td><%= link_to 'Show', [@project, labour_estimate] %></td>
+    <td><%= link_to 'Edit', edit_project_labour_estimate_path(@project, labour_estimate) %></td>
+    <td><%= link_to 'Destroy', [@project, labour_estimate], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Labour estimate', new_labour_estimate_path %>
+
