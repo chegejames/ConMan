@@ -7,6 +7,8 @@ class Project < ActiveRecord::Base
   has_many :services
   has_many :service_procurements
   has_many :labour_estimates
+  has_many :labourers
+  has_many :wages
   #FIXME add currency to project and format numbers
   attr_accessible :balance_amount, :budget_amount, :completion_pct, :estimated_completion_date, :location, :name, :spent_amount, :start_date
 

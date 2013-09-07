@@ -1,0 +1,22 @@
+<%= simple_form_for(@labourer) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :project %>
+    <%= f.input :title %>
+    <%= f.input :name %>
+    <%= f.input :lowest_estimated_number_of_days %>
+    <%= f.input :highest_estimated_number_of_days %>
+    <%= f.input :actual_number_of_days %>
+    <%= f.input :lowest_estimated_cost_per_day %>
+    <%= f.input :highest_estimated_cost_per_day %>
+    <%= f.input :avg_cost_per_day %>
+    <%= f.input :lowest_estimated_total_cost %>
+    <%= f.input :highest_estimated_total_cost %>
+    <%= f.input :actual_total_cost %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

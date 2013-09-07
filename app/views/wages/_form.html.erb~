@@ -1,0 +1,16 @@
+<%= simple_form_for(@wage) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :project %>
+    <%= f.association :labourer %>
+    <%= f.association :phase %>
+    <%= f.input :job %>
+    <%= f.input :date %>
+    <%= f.input :cost %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

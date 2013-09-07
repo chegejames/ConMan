@@ -1,0 +1,6 @@
+<h1>Editing labourer</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @labourer %> |
+<%= link_to 'Back', labourers_path %>

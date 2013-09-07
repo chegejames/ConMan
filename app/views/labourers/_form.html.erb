@@ -1,0 +1,20 @@
+<%= simple_form_for([@project, @labourer], html: {class: "form-horizontal"}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :name %>
+    <%= f.input :lowest_estimated_number_of_days %>
+    <%= f.input :highest_estimated_number_of_days %>
+    <%= f.input :actual_number_of_days %>
+    <%= f.input :lowest_estimated_cost_per_day %>
+    <%= f.input :highest_estimated_cost_per_day %>
+    <%= f.input :lowest_estimated_total_cost %>
+    <%= f.input :highest_estimated_total_cost %>
+  </div>
+
+  <div class="form-actions">
+    <%= link_to "Cancel", project_labourers_path(@project)%>
+    <%= f.button :submit %>
+  </div>
+<% end %>

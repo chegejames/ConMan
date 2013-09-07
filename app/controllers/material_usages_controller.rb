@@ -47,7 +47,7 @@ class MaterialUsagesController < ApplicationController
     @project = Project.find(params[:project_id])
     @material_usage = @project.material_usages.build(params[:material_usage].except(:material_id, :phase_id))
     @material_usage.material = Material.find(params[:material_usage][:material_id])
-    @material_usage.phase = Phase.find(params[:material_usage][:phase_id])
+    @material_usage.phase = Phase.find_by_id(params[:material_usage][:phase_id])
 
     respond_to do |format|
       if @material_usage.save

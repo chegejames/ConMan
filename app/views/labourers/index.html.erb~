@@ -1,0 +1,45 @@
+<h1>Listing labourers</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>Title</th>
+    <th>Name</th>
+    <th>Lowest estimated number of days</th>
+    <th>Highest estimated number of days</th>
+    <th>Actual number of days</th>
+    <th>Lowest estimated cost per day</th>
+    <th>Highest estimated cost per day</th>
+    <th>Avg cost per day</th>
+    <th>Lowest estimated total cost</th>
+    <th>Highest estimated total cost</th>
+    <th>Actual total cost</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @labourers.each do |labourer| %>
+  <tr>
+    <td><%= labourer.project %></td>
+    <td><%= labourer.title %></td>
+    <td><%= labourer.name %></td>
+    <td><%= labourer.lowest_estimated_number_of_days %></td>
+    <td><%= labourer.highest_estimated_number_of_days %></td>
+    <td><%= labourer.actual_number_of_days %></td>
+    <td><%= labourer.lowest_estimated_cost_per_day %></td>
+    <td><%= labourer.highest_estimated_cost_per_day %></td>
+    <td><%= labourer.avg_cost_per_day %></td>
+    <td><%= labourer.lowest_estimated_total_cost %></td>
+    <td><%= labourer.highest_estimated_total_cost %></td>
+    <td><%= labourer.actual_total_cost %></td>
+    <td><%= link_to 'Show', labourer %></td>
+    <td><%= link_to 'Edit', edit_labourer_path(labourer) %></td>
+    <td><%= link_to 'Destroy', labourer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Labourer', new_labourer_path %>

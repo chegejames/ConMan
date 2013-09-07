@@ -3,6 +3,7 @@ class MaterialUsage < ActiveRecord::Base
   belongs_to :material
   belongs_to :phase
   attr_accessible :date, :description, :quantity
+  delegate :name, :to => :phase, :allow_nil => true, :prefix => true
 
   after_save :update_material_used, :update_phase_avg
   after_destroy :update_material_used, :update_phase_avg
@@ -12,6 +13,8 @@ class MaterialUsage < ActiveRecord::Base
   end
 
   def update_phase_avg
-    self.phase.calculate_avg_cost
+    if self.phase.present?
+      self.phase.calculate_avg_cost
+    end
   end
 end

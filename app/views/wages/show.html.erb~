@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @wage.project %>
+</p>
+
+<p>
+  <b>Labourer:</b>
+  <%= @wage.labourer %>
+</p>
+
+<p>
+  <b>Phase:</b>
+  <%= @wage.phase %>
+</p>
+
+<p>
+  <b>Job:</b>
+  <%= @wage.job %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @wage.date %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @wage.cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_wage_path(@wage) %> |
+<%= link_to 'Back', wages_path %>

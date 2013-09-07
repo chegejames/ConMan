@@ -18,7 +18,7 @@
     <td><%= material_usage.material.name %></td>
     <td><%= material_usage.date %></td>
     <td><%= pluralize(material_usage.quantity, material_usage.material.units_of_measurement) %></td>
-    <td><%= material_usage.phase.name %></td>
+    <td><%= material_usage.phase_name %></td>
     <td><%= material_usage.description %></td>
     <td><%= link_to 'Show', [@project, material_usage], class: "btn btn-mini btn-info" %></td>
     <td><%= link_to 'Edit', edit_project_material_usage_path(@project, material_usage), class: "btn btn-mini btn-warning" %></td>

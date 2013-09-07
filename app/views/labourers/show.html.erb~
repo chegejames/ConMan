@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @labourer.project %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @labourer.title %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @labourer.name %>
+</p>
+
+<p>
+  <b>Lowest estimated number of days:</b>
+  <%= @labourer.lowest_estimated_number_of_days %>
+</p>
+
+<p>
+  <b>Highest estimated number of days:</b>
+  <%= @labourer.highest_estimated_number_of_days %>
+</p>
+
+<p>
+  <b>Actual number of days:</b>
+  <%= @labourer.actual_number_of_days %>
+</p>
+
+<p>
+  <b>Lowest estimated cost per day:</b>
+  <%= @labourer.lowest_estimated_cost_per_day %>
+</p>
+
+<p>
+  <b>Highest estimated cost per day:</b>
+  <%= @labourer.highest_estimated_cost_per_day %>
+</p>
+
+<p>
+  <b>Avg cost per day:</b>
+  <%= @labourer.avg_cost_per_day %>
+</p>
+
+<p>
+  <b>Lowest estimated total cost:</b>
+  <%= @labourer.lowest_estimated_total_cost %>
+</p>
+
+<p>
+  <b>Highest estimated total cost:</b>
+  <%= @labourer.highest_estimated_total_cost %>
+</p>
+
+<p>
+  <b>Actual total cost:</b>
+  <%= @labourer.actual_total_cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_labourer_path(@labourer) %> |
+<%= link_to 'Back', labourers_path %>

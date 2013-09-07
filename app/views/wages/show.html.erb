@@ -1,0 +1,28 @@
+<p>
+  <b>Labourer:</b>
+  <%= @wage.labourer.name %>
+</p>
+
+<p>
+  <b>Phase:</b>
+  <%= @wage.phase_name %>
+</p>
+
+<p>
+  <b>Job:</b>
+  <%= @wage.job %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @wage.date %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @wage.cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_wage_path(@project, @wage) %> |
+<%= link_to 'Back', project_wages_path(@project) %>

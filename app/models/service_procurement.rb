@@ -3,7 +3,7 @@ class ServiceProcurement < ActiveRecord::Base
   belongs_to :service
   belongs_to :phase
   attr_accessible :cost, :date, :provider
-
+  delegate :name, :to => :phase, :allow_nil => true, :prefix => true
   after_save :update_service, :update_phase, :update_project
   after_destroy :update_service, :update_phase, :update_project
 
@@ -12,7 +12,9 @@ class ServiceProcurement < ActiveRecord::Base
   end
 
   def update_phase
-    self.phase.calculate_total_cost_for_services
+    if self.phase.present?
+      self.phase.calculate_total_cost_for_services
+    end
   end
 
   def update_project

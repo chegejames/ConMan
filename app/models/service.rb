@@ -3,6 +3,8 @@ class Service < ActiveRecord::Base
   has_many :service_procurements
   attr_accessible :actual_number, :avg_cost_per_service, :highest_estimated_cost_per_service, :highest_estimated_number_of_services, :lowest_estimated_cost_per_service, :lowest_estimated_number_of_services, :name, :total_cost
 
+  delegate :name, :to => :phase, :allow_nil => true, :prefix => true
+
   def calulate_total_and_avg_cost_and_number
     total_services = self.service_procurements.count
     total_cost = self.service_procurements.sum(:cost)

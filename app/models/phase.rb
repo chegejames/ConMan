@@ -21,4 +21,8 @@ class Phase < ActiveRecord::Base
     self.update_attributes(:actual_cost => total_cost)
   end
 
+  def calculate_total_cost_for_wages
+    total_cost = self.wages.sum(:cost)
+    self.update_attributes(:actual_cost => total_cost)
+  end
 end

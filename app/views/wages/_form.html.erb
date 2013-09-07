@@ -1,0 +1,16 @@
+<%= simple_form_for([@project, @wage], html: {class: "form-horizontal"}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :labourer, collection: @project.labourers %>
+    <%= f.association :phase, collection: @project.phases %>
+    <%= f.input :job %>
+    <%= f.input :date %>
+    <%= f.input :cost %>
+  </div>
+
+  <div class="form-actions">
+    <%= link_to "Cancel", project_wages_path(@project)%>
+    <%= f.button :submit %>
+  </div>
+<% end %>

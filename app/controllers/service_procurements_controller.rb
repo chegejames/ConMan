@@ -47,7 +47,7 @@ class ServiceProcurementsController < ApplicationController
     @project = Project.find(params[:project_id])
     @service_procurement = @project.service_procurements.build(params[:service_procurement].except(:service_id, :phase_id))
     @service_procurement.service = Service.find(params[:service_procurement][:service_id])
-    @service_procurement.phase = Phase.find(params[:service_procurement][:phase_id])
+    @service_procurement.phase = Phase.find_by_id(params[:service_procurement][:phase_id])
 
     respond_to do |format|
       if @service_procurement.save
