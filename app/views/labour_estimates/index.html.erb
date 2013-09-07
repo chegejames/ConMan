@@ -1,0 +1,31 @@
+<h1>Listing labour_estimates</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>No of men</th>
+    <th>No of days</th>
+    <th>Total cost per day</th>
+    <th>Total cost</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @labour_estimates.each do |labour_estimate| %>
+  <tr>
+    <td><%= labour_estimate.project %></td>
+    <td><%= labour_estimate.no_of_men %></td>
+    <td><%= labour_estimate.no_of_days %></td>
+    <td><%= labour_estimate.total_cost_per_day %></td>
+    <td><%= labour_estimate.total_cost %></td>
+    <td><%= link_to 'Show', labour_estimate %></td>
+    <td><%= link_to 'Edit', edit_labour_estimate_path(labour_estimate) %></td>
+    <td><%= link_to 'Destroy', labour_estimate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Labour estimate', new_labour_estimate_path %>

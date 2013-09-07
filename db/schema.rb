@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130904203912) do
+ActiveRecord::Schema.define(:version => 20130907083419) do
+
+  create_table "labour_estimates", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "no_of_men"
+    t.float    "no_of_days"
+    t.float    "total_cost_per_day"
+    t.float    "total_cost"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "labour_estimates", ["project_id"], :name => "index_labour_estimates_on_project_id"
 
   create_table "material_procurements", :force => true do |t|
     t.integer  "project_id"

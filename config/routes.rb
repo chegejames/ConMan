@@ -7,6 +7,9 @@ ConMan::Application.routes.draw do
 
 
 
+  resources :labour_estimates
+
+
   resources :projects do
     resources :phases
     resources :materials

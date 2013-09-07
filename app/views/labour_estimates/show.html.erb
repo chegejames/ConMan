@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @labour_estimate.project %>
+</p>
+
+<p>
+  <b>No of men:</b>
+  <%= @labour_estimate.no_of_men %>
+</p>
+
+<p>
+  <b>No of days:</b>
+  <%= @labour_estimate.no_of_days %>
+</p>
+
+<p>
+  <b>Total cost per day:</b>
+  <%= @labour_estimate.total_cost_per_day %>
+</p>
+
+<p>
+  <b>Total cost:</b>
+  <%= @labour_estimate.total_cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_labour_estimate_path(@labour_estimate) %> |
+<%= link_to 'Back', labour_estimates_path %>
