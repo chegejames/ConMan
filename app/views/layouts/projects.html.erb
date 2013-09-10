@@ -1,46 +1,47 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<%= display_meta_tags :site => 'Construction Managment App' %>
-		<%= stylesheet_link_tag    "application", :media => "all" %>
-		<%= javascript_include_tag "application" %>
-		<%= csrf_meta_tags %>
-	</head>
-	<body>
-		<% if user_signed_in?%>
-		<div class="navbar">
-			<div class="navbar-inner">
-				<div class="container">
-					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<div class="nav-collapse collapse">
-						<ul class="nav">
-							<li>
-								<%= link_to "Start a project", new_project_path%>
-							</li>
-							<li class="divider-vertical"></li>
-							<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<%end%>
-		<% if notice.present?%>
-		<p class="notice">
-			<%= notice %>
-		</p>
-		<%end%>
-		<% if alert.present?%>
-		<p class="alert">
-			<%= alert %>
-		</p>
-		<%end%>
-		<div class="container-fluid">
-			<%= yield %>
-		</div>
-	</body>
+  <head>
+    <%= display_meta_tags :site => 'Construction Managment App' %>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <% if user_signed_in?%>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#"><%= Construction Managment App%></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li>
+                <%= link_to "Start a project", new_project_path%>
+              </li>
+              <li class="divider-vertical"></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%end%>
+    <% if notice.present?%>
+    <p class="notice">
+      <%= notice %>
+    </p>
+    <%end%>
+    <% if alert.present?%>
+    <p class="alert">
+      <%= alert %>
+    </p>
+    <%end%>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+  </body>
 </html>
