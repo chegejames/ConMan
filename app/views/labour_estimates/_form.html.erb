@@ -15,7 +15,7 @@
   </div>
 
   <div class="form-actions">
-    <%= link_to "Cancel" , project_labour_estimates_path(@project)%>
-    <%= f.button :submit %>
+    <%= link_to "Cancel" , project_labour_estimates_path(@project), class: "btn btn-danger"%> |
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>

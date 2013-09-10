@@ -15,7 +15,7 @@ class ServiceProcurementsController < ApplicationController
   # GET /service_procurements/1.json
   def show
     @project = Project.find(params[:project_id])
-    @service_procurement = ServiceProcurement.find(params[:id])
+    @service_procurement = @project.service_procurements.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +38,7 @@ class ServiceProcurementsController < ApplicationController
   # GET /service_procurements/1/edit
   def edit
     @project = Project.find(params[:project_id])
-    @service_procurement = ServiceProcurement.find(params[:id])
+    @service_procurement =  @project.service_procurements.find(params[:id])
   end
 
   # POST /service_procurements
@@ -46,8 +46,8 @@ class ServiceProcurementsController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @service_procurement = @project.service_procurements.build(params[:service_procurement].except(:service_id, :phase_id))
-    @service_procurement.service = Service.find(params[:service_procurement][:service_id])
-    @service_procurement.phase = Phase.find_by_id(params[:service_procurement][:phase_id])
+    @service_procurement.service =  @project.services.find_by_id(params[:service_procurement][:service_id])
+    @service_procurement.phase = @project.phases.find_by_id(params[:service_procurement][:phase_id])
 
     respond_to do |format|
       if @service_procurement.save
@@ -64,7 +64,9 @@ class ServiceProcurementsController < ApplicationController
   # PUT /service_procurements/1.json
   def update
     @project = Project.find(params[:project_id])
-    @service_procurement = ServiceProcurement.find(params[:id])
+    @service_procurement = @project.service_procurements.find(params[:id])
+    @service_procurement.service =  @project.services.find_by_id(params[:service_procurement][:service_id])
+    @service_procurement.phase = @project.phases.find_by_id(params[:service_procurement][:phase_id])
 
     respond_to do |format|
       if @service_procurement.update_attributes(params[:service_procurement].except(:service_id, :phase_id))
@@ -81,11 +83,11 @@ class ServiceProcurementsController < ApplicationController
   # DELETE /service_procurements/1.json
   def destroy
     @project = Project.find(params[:project_id])
-    @service_procurement = ServiceProcurement.find(params[:id])
+    @service_procurement = @project.service_procurements.find(params[:id])
     @service_procurement.destroy
 
     respond_to do |format|
-      format.html { redirect_to project_service_procurements_url }
+      format.html { redirect_to project_service_procurements_path(@project) }
       format.json { head :no_content }
     end
   end

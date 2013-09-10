@@ -15,7 +15,7 @@ class MaterialUsagesController < ApplicationController
   # GET /material_usages/1.json
   def show
     @project = Project.find(params[:project_id])
-    @material_usage = MaterialUsage.find(params[:id])
+    @material_usage = @project.material_usages.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +38,7 @@ class MaterialUsagesController < ApplicationController
   # GET /material_usages/1/edit
   def edit
     @project = Project.find(params[:project_id])
-    @material_usage = MaterialUsage.find(params[:id])
+    @material_usage = @project.material_usages.find(params[:id])
   end
 
   # POST /material_usages
@@ -46,8 +46,8 @@ class MaterialUsagesController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @material_usage = @project.material_usages.build(params[:material_usage].except(:material_id, :phase_id))
-    @material_usage.material = Material.find(params[:material_usage][:material_id])
-    @material_usage.phase = Phase.find_by_id(params[:material_usage][:phase_id])
+    @material_usage.material = @project.materials.find_by_id(params[:material_usage][:material_id])
+    @material_usage.phase = @project.phases.find_by_id(params[:material_usage][:phase_id])
 
     respond_to do |format|
       if @material_usage.save
@@ -64,9 +64,9 @@ class MaterialUsagesController < ApplicationController
   # PUT /material_usages/1.json
   def update
     @project = Project.find(params[:project_id])
-    @material_usage = MaterialUsage.find(params[:id])
-    @material_usage.material = Material.find(params[:material_usage][:material_id])
-    @material_usage.phase = Phase.find(params[:material_usage][:phase_id])
+    @material_usage = @project.material_usages.find(params[:id])
+    @material_usage.material = @project.materials.find_by_id(params[:material_usage][:material_id])
+    @material_usage.phase = @project.phases.find_by_id(params[:material_usage][:phase_id])
 
     respond_to do |format|
       if @material_usage.update_attributes(params[:material_usage].except(:material_id, :phase_id))
@@ -83,7 +83,7 @@ class MaterialUsagesController < ApplicationController
   # DELETE /material_usages/1.json
   def destroy
     @project = Project.find(params[:project_id])
-    @material_usage = MaterialUsage.find(params[:id])
+    @material_usage = @project.material_usages.find(params[:id])
     @material_usage.destroy
 
     respond_to do |format|

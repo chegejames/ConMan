@@ -1,3 +1,4 @@
+<%set_meta_tags  :title => "Project:  #{@project.name}/Material Procurements:#{ @material_procurement.material.name}", :reverse => true%>
 <div class="row-fluid material">
 
 <h2>  <%= @material_procurement.material.name %></h2>
@@ -23,7 +24,7 @@
   <%= @material_procurement.total %>
 </p>
 
-<%= link_to 'Back', project_material_procurements_path(@project) %> |
-<%= link_to image_tag("pencil.png"), edit_project_material_procurement_path(@project, @material_procurement) %> |
-         <%= link_to image_tag("close.png"), [@project, @materil_procurement], method: :delete, data: {confirm: "Are you sure?"}%>
+<%= link_to image_tag("back.png"), project_material_procurements_path(@project), class: "btn" %> |
+<%= link_to image_tag("pencil.png"), edit_project_material_procurement_path(@project, @material_procurement), class: "btn btn-warning" %> |
+<%= link_to image_tag("close.png"), [@project, @material_procurement], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%>
 </div>

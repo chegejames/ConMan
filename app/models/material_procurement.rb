@@ -1,7 +1,11 @@
 class MaterialProcurement < ActiveRecord::Base
   belongs_to :material
   belongs_to :project
-  attr_accessible :date, :price_per_unit, :quantity, :total
+  attr_accessible :material_id, :date, :price_per_unit, :quantity, :total
+
+  validates :date, :price_per_unit, :quantity, presence: true
+  validates  :total,:price_per_unit, :quantity, numericality: true, allow_nil: true
+  validates_presence_of :material_id
   before_save :calculate_total
   after_save :calculate_totals_for_material,  :update_phase_avg, :update_project
   after_destroy :calculate_totals_for_material, :update_phase_avg, :update_project
@@ -19,6 +23,6 @@ class MaterialProcurement < ActiveRecord::Base
   end
 
    def update_project
-    self.project.calculate_totals_and_balance
+    self.project.calculate_totals_and_balance_and_progress
   end
 end

@@ -1,4 +1,6 @@
+<%set_meta_tags  :title => "Project:  #{@project.name} phases", :reverse => true%>
 <div class="row-fluid">
+<h1>Phases</h1>
 <div class="row-fluid">
 <div class="span12">
 <div><%= image_tag("plus.png")%> <%= link_to "Add Phase", new_project_phase_path(@project) %></div>
@@ -16,6 +18,7 @@
     <p><span>Lowest estimated cost: </span><%= phase.lowest_estimated_cost %></p>
     <p><span>Highest estimated cost: </span><%= phase.highest_estimated_cost %></p>
     <p><span>Actual cost: </span><%= phase.actual_cost %></p>
+    <p><%= best_in_place phase, :completion_pct, :type => :input, :path => [@project, phase], :nil => "(change completion percantage!)", :ok_button => "update", :ok_button_class => "btn btn-primary btn-mini", :cancel_button => "cancel", cancel_button_class: "btn btn-mini btn-danger"%></p>
     <div class="progress progress-striped active">
       <div class="bar" style="width: <%= phase.completion_pct.to_i%>%;"></div>
     </div>

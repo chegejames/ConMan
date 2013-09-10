@@ -15,7 +15,7 @@ class MaterialProcurementsController < ApplicationController
   # GET /material_procurements/1.json
   def show
     @project = Project.find(params[:project_id])
-    @material_procurement = MaterialProcurement.find(params[:id])
+    @material_procurement = @project.material_procurements.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +38,7 @@ class MaterialProcurementsController < ApplicationController
   # GET /material_procurements/1/edit
   def edit
     @project = Project.find(params[:project_id])
-    @material_procurement = MaterialProcurement.find(params[:id])
+    @material_procurement = @project.material_procurements.find(params[:id])
   end
 
   # POST /material_procurements
@@ -48,8 +48,7 @@ class MaterialProcurementsController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @material_procurement = @project.material_procurements.build(params[:material_procurement].except(:material_id))
-    @material_procurement.material = Material.find(params[:material_procurement][:material_id])
-    #@material_procurement.calulate_total_cost(params[:material_procurement][:quantity], params[:material_procurement][:price_per_unit])
+    @material_procurement.material = @project.materials.find_by_id(params[:material_procurement][:material_id])
 
     respond_to do |format|
       if @material_procurement.save
@@ -67,7 +66,8 @@ class MaterialProcurementsController < ApplicationController
   # PUT /material_procurements/1.json
   def update
     @project = Project.find(params[:project_id])
-    @material_procurement = MaterialProcurement.find(params[:id])
+    @material_procurement = @project.material_procurements.find(params[:id])
+    @material_procurement.material = @project.materials.find_by_id(params[:material_procurement][:material_id])
 
     respond_to do |format|
       if @material_procurement.update_attributes(params[:material_procurement].except(:material_id))
@@ -84,7 +84,7 @@ class MaterialProcurementsController < ApplicationController
   # DELETE /material_procurements/1.json
   def destroy
     @project = Project.find(params[:project_id])
-    @material_procurement = MaterialProcurement.find(params[:id])
+    @material_procurement = @project.material_procurements.find(params[:id])
     @material_procurement.destroy
 
     respond_to do |format|

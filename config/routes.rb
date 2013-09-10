@@ -11,13 +11,13 @@ ConMan::Application.routes.draw do
     resources :labour_estimates
     resources :labourers
     resources :wages
-    get "labour/index"
   end
-
 
   devise_for :users
 
   match "home" =>  "home#index"
+
+  match 'projects' => 'projects#index', :as => 'user_root'
 
 
   # The priority is based upon order of creation:
@@ -69,7 +69,8 @@ ConMan::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'projects#index'
+   root :to => 'home#index'
+
 
   # See how all your routes lay out with "rake routes"
 

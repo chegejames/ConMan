@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ConMgt</title>
+    <%= display_meta_tags :site => 'Construction Managment App' %>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -11,14 +11,21 @@
     <% if user_signed_in?%>
     <div class="navbar">
       <div class="navbar-inner">
+         <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         <a class="brand" href="#"><%= current_user.first_name + current_user.last_name%></a>
+         <div class="nav-collapse collapse">
         <ul class="nav pull-right">
           <li>
             <%= link_to "My Projects", projects_path%>
           </li>
           <li class="divider-vertical"></li>
           <li>
-            <%= link_to @project.name, @project%>
+            <%= link_to current_project.name, current_project%>
           </li>
           <li class="divider-vertical"></li>
           <li>
@@ -68,10 +75,13 @@
           </ul>
           <li class="divider-vertical"></li>
           <li>
-            <%= link_to "logout", destroy_user_session_path, method: :delete%>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete%>
           </li>
 
+
         </ul>
+      </div>
+      </div>
       </div>
     </div>
 

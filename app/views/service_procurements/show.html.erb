@@ -1,3 +1,4 @@
+<%set_meta_tags  :title => "Project:  #{@project.name}/Service Procured:#{@service_procurement.service.name}", :reverse => true%>
 <div class="row-fluid service">
  <h2> <%= @service_procurement.service.name %></h2>
 <p>
@@ -20,8 +21,8 @@
   <%= @service_procurement.cost %>
 </p>
 
-<%= link_to 'Back', project_service_procurements_path(@project) %> |
-<%= link_to image_tag("pencil.png"), edit_project_service_procurement_path(@project, @service_procurement) %> |
-         <%= link_to image_tag("close.png"), [@project, @service_procurement], method: :delete, data: {confirmation: "Are you sure"}%>
+<%= link_to image_tag("back.png"), project_service_procurements_path(@project), class: "btn"%> |
+<%= link_to image_tag("pencil.png"), edit_project_service_procurement_path(@project, @service_procurement), class: "btn btn-warning" %> |
+<%= link_to image_tag("close.png"), [@project, @service_procurement], method: :delete, data: {confirmation: "Are you sure"}, class: "btn btn-danger"%>
 
 </div>

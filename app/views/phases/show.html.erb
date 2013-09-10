@@ -1,3 +1,4 @@
+<%set_meta_tags  :title => "Project:  #{@project.name}/phase: #{@phase.name}", :reverse => true%>
 <div class="row-fluid phase">
     <h2><%= @phase.name %></h2>
 
@@ -8,12 +9,13 @@
     <p><span>Lowest estimated cost: </span><%= @phase.lowest_estimated_cost %></p>
     <p><span>Highest estimated cost: </span><%= @phase.highest_estimated_cost %></p>
     <p><span>Actual cost: </span><%= @phase.actual_cost %></p>
+    <p><%= best_in_place @phase, :completion_pct, :type => :input, :path => [@project, @phase], :nil => "(change completion percantage!)", :ok_button => "update", :ok_button_class => "btn btn-primary btn-mini", :cancel_button => "cancel", cancel_button_class: "btn btn-mini btn-danger", :classes => "editable"%><span class="edtitable"><strong> ( editable! )</strong></span></p>
     <div class="progress progress-striped active">
       <div class="bar" style="width: <%= @phase.completion_pct.to_i%>%;"></div>
     </div>
-     <%= link_to "Back", project_phases_path(@project)%> |
-     <%= link_to image_tag("pencil.png"), edit_project_phase_path(@project, @phase)%>|
-     <%= link_to image_tag("close.png"), [@project, @phase], method: :delete, data: { confirm: 'Are you sure?' }%>
+     <%= link_to image_tag("back.png"), project_phases_path(@project), class: "btn"%> |
+     <%= link_to image_tag("pencil.png"), edit_project_phase_path(@project, @phase), class: "btn btn-warning"%> |
+     <%= link_to image_tag("close.png"), [@project, @phase], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%>
   </div>
 
 

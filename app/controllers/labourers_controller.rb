@@ -15,7 +15,7 @@ class LabourersController < ApplicationController
   # GET /labourers/1.json
   def show
      @project = Project.find(params[:project_id])
-    @labourer = Labourer.find(params[:id])
+    @labourer = @project.labourers.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +38,7 @@ class LabourersController < ApplicationController
   # GET /labourers/1/edit
   def edit
      @project = Project.find(params[:project_id])
-    @labourer = Labourer.find(params[:id])
+    @labourer = @project.labourers.find(params[:id])
   end
 
   # POST /labourers
@@ -62,7 +62,7 @@ class LabourersController < ApplicationController
   # PUT /labourers/1.json
   def update
      @project = Project.find(params[:project_id])
-    @labourer = Labourer.find(params[:id])
+    @labourer = @project.labourers.find(params[:id])
 
     respond_to do |format|
       if @labourer.update_attributes(params[:labourer])
@@ -79,7 +79,7 @@ class LabourersController < ApplicationController
   # DELETE /labourers/1.json
   def destroy
      @project = Project.find(params[:project_id])
-    @labourer = Labourer.find(params[:id])
+    @labourer = @project.labourers.find(params[:id])
     @labourer.destroy
 
     respond_to do |format|

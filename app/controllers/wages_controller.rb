@@ -15,7 +15,7 @@ class WagesController < ApplicationController
   # GET /wages/1.json
   def show
     @project = Project.find(params[:project_id])
-    @wage = Wage.find(params[:id])
+    @wage = @project.wages.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +38,7 @@ class WagesController < ApplicationController
   # GET /wages/1/edit
   def edit
     @project = Project.find(params[:project_id])
-    @wage = Wage.find(params[:id])
+    @wage = @project.wages.find(params[:id])
   end
 
   # POST /wages
@@ -46,8 +46,8 @@ class WagesController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @wage = @project.wages.build(params[:wage].except(:labourer_id, :phase_id))
-    @wage.labourer = Labourer.find(params[:wage][:labourer_id])
-    @wage.phase = Phase.find_by_id(params[:wage][:phase_id])
+    @wage.labourer = @project.labourers.find_by_id(params[:wage][:labourer_id])
+    @wage.phase = @project.phases.find_by_id(params[:wage][:phase_id])
 
     respond_to do |format|
       if @wage.save
@@ -64,9 +64,9 @@ class WagesController < ApplicationController
   # PUT /wages/1.json
   def update
     @project = Project.find(params[:project_id])
-    @wage = Wage.find(params[:id])
-    @wage.labourer = Labourer.find(params[:wage][:labourer_id])
-    @wage.phase = Phase.find_by_id(params[:wage][:phase_id])
+    @wage = @project.wages.find(params[:id])
+    @wage.labourer = @project.labourers.find_by_id(params[:wage][:labourer_id])
+    @wage.phase = @project.phases.find_by_id(params[:wage][:phase_id])
 
     respond_to do |format|
       if @wage.update_attributes(params[:wage].except(:labourer_id, :phase_id))
@@ -83,7 +83,7 @@ class WagesController < ApplicationController
   # DELETE /wages/1.json
   def destroy
     @project = Project.find(params[:project_id])
-    @wage = Wage.find(params[:id])
+    @wage = @project.wages.find(params[:id])
     @wage.destroy
 
     respond_to do |format|

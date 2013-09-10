@@ -1,3 +1,4 @@
+<%set_meta_tags  :title => "Project:  #{@project.name}/Service:#{@service.name}", :reverse => true%>
 <div class="row-fluid service">
 <h2>  <%= @service.name %></h2>
 <p>
@@ -35,8 +36,8 @@
   <%= @service.total_cost %>
 </p>
 
-<%= link_to 'Back', project_services_path(@project) %> |
-<%= link_to image_tag("pencil.png"), edit_project_service_path(@project, @service) %> |
-         <%= link_to image_tag("close.png"), [@project, @service], method: :delete, data: {confirmation: "Are you sure"}%>
+<%= link_to image_tag("back.png"), project_services_path(@project), class: "btn" %> |
+<%= link_to image_tag("pencil.png"), edit_project_service_path(@project, @service), class: "btn btn-warning" %> |
+         <%= link_to image_tag("close.png"), [@project, @service], method: :delete, data: {confirmation: "Are you sure"}, class: "btn btn-danger"%>
 
 </div>

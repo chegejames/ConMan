@@ -1,8 +1,6 @@
-<p>
-  <b>Labourer:</b>
-  <%= @wage.labourer.name %>
-</p>
-
+<%set_meta_tags  :title => "Project:  #{@project.name}/Wage:#{@wage.labourer.name}", :reverse => true%>
+<div class="row-fluid wage">
+<h2><%= @wage.labourer.name + "'s wages" %></h2>
 <p>
   <b>Phase:</b>
   <%= @wage.phase_name %>
@@ -23,6 +21,8 @@
   <%= @wage.cost %>
 </p>
 
+<%= link_to image_tag("back.png"), project_wages_path(@project), class: "btn"%> |
+<%= link_to image_tag("pencil.png"), edit_project_wage_path(@project, @wage) , class: "btn btn-warning"%> |
+<%= link_to image_tag("close.png"), [@project, @wage], method: :delete, data: {confirmation: "Are you sure"}, class: "btn btn-danger"%>
 
-<%= link_to 'Edit', edit_project_wage_path(@project, @wage) %> |
-<%= link_to 'Back', project_wages_path(@project) %>
+</div>

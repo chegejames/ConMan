@@ -10,7 +10,7 @@
   </div>
 
   <div class="form-actions">
-    <%= link_to "Cancel", project_service_procurements_path(@project), class: "btn"%>
-    <%= f.button :submit %>
+    <%= link_to "Cancel", project_service_procurements_path(@project), class: "btn btn-danger"%> |
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>

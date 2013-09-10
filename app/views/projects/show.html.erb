@@ -1,4 +1,5 @@
- <div class="row-fluid project">
+<%set_meta_tags  :title => "Project:  #{@project.name}", :reverse => true%>
+<div class="row-fluid project">
 <h2><%= image_tag "home.png"%>  <%= @project.name%></h2>
 <h5><%= image_tag "location.png"%> <%= @project.location %></h5>
 <div class="row-fluid stats">
@@ -26,6 +27,8 @@
     <div class="progress progress-striped active">
       <div class="bar" style="width: <%= @project.completion_pct.to_i%>%;"></div>
     </div>
-    <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-warning"%>
+    <%= link_to image_tag("back.png"), projects_path, class: "btn"%> |
+    <%= link_to image_tag("pencil.png"), edit_project_path(@project), class: "btn btn-warning"%> |
+    <%= link_to image_tag("close.png"), @projec, method: :delete, data: {confirmation: "Are you sure deleting this project will delete all resources related to this project"}, class: "btn btn-danger"%>
   </div>
 

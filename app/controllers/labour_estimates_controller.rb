@@ -3,7 +3,7 @@ class LabourEstimatesController < ApplicationController
   # GET /labour_estimates.json
   def index
     @project = Project.find(params[:project_id])
-    @labour_estimates = @project.labour_estimates.all
+    @labour_estimates = @project.labour_estimates
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class LabourEstimatesController < ApplicationController
   # GET /labour_estimates/1.json
   def show
      @project = Project.find(params[:project_id])
-    @labour_estimate = LabourEstimate.find(params[:id])
+    @labour_estimate = @project.labour_estimates.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +38,7 @@ class LabourEstimatesController < ApplicationController
   # GET /labour_estimates/1/edit
   def edit
      @project = Project.find(params[:project_id])
-    @labour_estimate = LabourEstimate.find(params[:id])
+    @labour_estimate = @project.labour_estimates.find(params[:id])
   end
 
   # POST /labour_estimates
@@ -62,7 +62,7 @@ class LabourEstimatesController < ApplicationController
   # PUT /labour_estimates/1.json
   def update
      @project = Project.find(params[:project_id])
-    @labour_estimate = LabourEstimate.find(params[:id])
+    @labour_estimate = @project.labour_estimates.find(params[:id])
 
     respond_to do |format|
       if @labour_estimate.update_attributes(params[:labour_estimate])
@@ -79,7 +79,7 @@ class LabourEstimatesController < ApplicationController
   # DELETE /labour_estimates/1.json
   def destroy
      @project = Project.find(params[:project_id])
-    @labour_estimate = LabourEstimate.find(params[:id])
+    @labour_estimate = @project.labour_estimates.find(params[:id])
     @labour_estimate.destroy
 
     respond_to do |format|

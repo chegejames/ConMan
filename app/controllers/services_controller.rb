@@ -3,7 +3,7 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @project = Project.find(params[:project_id])
-    @services = @project.services
+    @services = @project.services.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class ServicesController < ApplicationController
   # GET /services/1.json
   def show
     @project = Project.find(params[:project_id])
-    @service = Service.find(params[:id])
+    @service = @project.services.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +38,7 @@ class ServicesController < ApplicationController
   # GET /services/1/edit
   def edit
     @project = Project.find(params[:project_id])
-    @service = Service.find(params[:id])
+    @service = @project.services.find(params[:id])
   end
 
   # POST /services
@@ -62,7 +62,7 @@ class ServicesController < ApplicationController
   # PUT /services/1.json
   def update
     @project = Project.find(params[:project_id])
-    @service = Service.find(params[:id])
+    @service = @project.services.find(params[:id])
 
     respond_to do |format|
       if @service.update_attributes(params[:service])
@@ -79,7 +79,7 @@ class ServicesController < ApplicationController
   # DELETE /services/1.json
   def destroy
     @project = Project.find(params[:project_id])
-    @service = Service.find(params[:id])
+    @service = @project.services.find(params[:id])
     @service.destroy
 
     respond_to do |format|

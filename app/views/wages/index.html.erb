@@ -1,6 +1,7 @@
+<%set_meta_tags  :title => "Project:  #{@project.name}/Wages", :reverse => true%>
 <h1>Listing wages</h1>
-<%= link_to 'New Wage', new_project_wage_path(@project) %>
-<table>
+<%= image_tag("plus.png")%> <%= link_to 'New Wage', new_project_wage_path(@project) %>
+<table class="table table-striped table-condensed table-hover table-bordered">
   <tr>
     <th>Labourer</th>
     <th>Phase</th>
@@ -19,9 +20,9 @@
     <td><%= wage.job %></td>
     <td><%= wage.date %></td>
     <td><%= wage.cost %></td>
-    <td><%= link_to 'Show', [@project, wage] %></td>
-    <td><%= link_to 'Edit', edit_project_wage_path(@project, wage) %></td>
-    <td><%= link_to 'Destroy', [@project, wage], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', [@project, wage], class: "btn btn-mini btn-info" %></td>
+    <td><%= link_to 'Edit', edit_project_wage_path(@project, wage), class: "btn btn-mini btn-warning" %></td>
+    <td><%= link_to 'Destroy', [@project, wage], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
   </tr>
 <% end %>
 </table>

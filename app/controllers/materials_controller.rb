@@ -15,7 +15,7 @@ class MaterialsController < ApplicationController
   # GET /materials/1.json
   def show
     @project = Project.find(params[:project_id])
-    @material = Material.find(params[:id])
+    @material = @project.materials.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +38,7 @@ class MaterialsController < ApplicationController
   # GET /materials/1/edit
   def edit
     @project = Project.find(params[:project_id])
-    @material = Material.find(params[:id])
+    @material = @project.materials.find(params[:id])
   end
 
   # POST /materials
@@ -62,7 +62,7 @@ class MaterialsController < ApplicationController
   # PUT /materials/1.json
   def update
     @project = Project.find(params[:project_id])
-    @material = Material.find(params[:id])
+    @material = @project.materials.find(params[:id])
 
     respond_to do |format|
       if @material.update_attributes(params[:material])
@@ -79,7 +79,7 @@ class MaterialsController < ApplicationController
   # DELETE /materials/1.json
   def destroy
     @project = Project.find(params[:project_id])
-    @material = Material.find(params[:id])
+    @material = @project.materials.find(params[:id])
     @material.destroy
 
     respond_to do |format|

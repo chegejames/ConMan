@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = current_user.projects.find(params[:id])
+    session[:project_id] = @project.id
 
     respond_to do |format|
       format.html # show.html.erb
@@ -50,7 +51,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
-        format.html { render action: "new" }
+        format.html { render action: "new", layout: "projects" }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
